@@ -11,7 +11,7 @@ spec:
     namespace: {{ .Values.namespace }}
     server: {{.Values.spec.destination.server}}
   source:
-    repoUrl: {{ .Values.spec.source.repoUrl }}
+    repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
     path: ./src/pong/
     helm:
