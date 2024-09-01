@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: ping
+  name: ping
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: ping
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: ping
+    spec:
+      containers:
+      - image: gcr.io/google-samples/hello-app:2.0
+        name: hello-world-ping
+        ports:
+        - containerPort: 8080

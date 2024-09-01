@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ping-{{ .Values.namespace }}
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ .Values.project }}
+  destination:
+    namespace: {{ .Values.namespace }}
+    server: {{.Values.spec.destination.server}}
+  source:
+    repoUrl: {{ .Values.spec.source.repoUrl }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
+    path: ./src/ping/
+    helm:
+      valueFiles:
+{{ toYaml .Values.spec.source.helm.valueFiles | indent 8}}

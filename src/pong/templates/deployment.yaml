@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: pong
+  name: pong
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: pong
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: pong
+    spec:
+      containers:
+      - image: gcr.io/google-samples/hello-app:2.0
+        name: hello-world-pong
+        ports:
+        - containerPort: 8080
