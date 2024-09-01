@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: argocd-control-dev
+  annotations:
+    argocd.argoproj.io/sync-wave: '-1'
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: argocd-control-prod
+  annotations:
+    argocd.argoproj.io/sync-wave: '-1'
