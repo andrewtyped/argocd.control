@@ -15,7 +15,9 @@ spec:
         app.kubernetes.io/name: ping
     spec:
       containers:
-      - image: gcr.io/google-samples/hello-app:2.0
-        name: hello-world-ping
+      #us-east1-docker.pkg.dev/virtual-transit-432200-s6/docker-repo/dotnet-ping:20240831.9
+      - image: {{ .Values.Image }}
+        name: ping
         ports:
-        - containerPort: 8080
+        - containerPort: 80
+        - containerPort: 443

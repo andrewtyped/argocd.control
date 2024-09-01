@@ -15,7 +15,8 @@ spec:
         app.kubernetes.io/name: pong
     spec:
       containers:
-      - image: gcr.io/google-samples/hello-app:2.0
+      - image: {{ .Values.Image }}
         name: hello-world-pong
         ports:
-        - containerPort: 8080
+        - containerPort: 80
+        - containerPort: 443
