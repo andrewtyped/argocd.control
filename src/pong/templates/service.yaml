@@ -7,9 +7,8 @@ spec:
     app.kubernetes.io/name: pong
   ports:
     - protocol: TCP
-      port: 81
+      port: 80
       targetPort: 8080
-  clusterIP: {{ .Values.clusterIP }}
   type: LoadBalancer
 # status:
 #   loadBalancer:
